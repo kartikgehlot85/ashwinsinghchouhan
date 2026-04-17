@@ -1,0 +1,90 @@
+type UpdateItemRequest = 
+ record {
+   contentType: ContentType;
+   date: text;
+   description: text;
+   externalUrl: opt text;
+   fileUrl: opt text;
+   id: ItemId;
+   tags: vec text;
+   title: text;
+ };
+type Token = text;
+type Timestamp = int;
+type Result_3 = 
+ variant {
+   err: text;
+   ok: ContentItem;
+ };
+type Result_2 = 
+ variant {
+   err: text;
+   ok: vec ContactSubmission;
+ };
+type Result_1 = 
+ variant {
+   err: text;
+   ok: ContactSubmission;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: bool;
+ };
+type LoginResult = 
+ variant {
+   err: text;
+   ok: Token;
+ };
+type ItemId = nat;
+type ContentType = text;
+type ContentItem = 
+ record {
+   contentType: ContentType;
+   createdAt: Timestamp;
+   date: text;
+   description: text;
+   externalUrl: opt text;
+   fileUrl: opt text;
+   id: ItemId;
+   tags: vec text;
+   title: text;
+ };
+type ContactSubmission = 
+ record {
+   email: text;
+   id: ContactId;
+   message: text;
+   name: text;
+   subject: text;
+   submittedAt: Timestamp;
+ };
+type ContactRequest = 
+ record {
+   email: text;
+   message: text;
+   name: text;
+   subject: text;
+ };
+type ContactId = nat;
+type AddItemRequest = 
+ record {
+   contentType: ContentType;
+   date: text;
+   description: text;
+   externalUrl: opt text;
+   fileUrl: opt text;
+   tags: vec text;
+   title: text;
+ };
+service : {
+  addItem: (token: Token, req: AddItemRequest) -> (Result_3);
+  adminLogin: (password: text) -> (LoginResult);
+  deleteItem: (token: Token, id: ItemId) -> (Result);
+  getContacts: (token: Token) -> (Result_2);
+  getItem: (id: ItemId) -> (opt ContentItem) query;
+  getItemsByType: (contentType: ContentType) -> (vec ContentItem) query;
+  submitContact: (req: ContactRequest) -> (Result_1);
+  updateItem: (token: Token, req: UpdateItemRequest) -> (Result);
+  verifyToken: (token: Token) -> (bool) query;
+}

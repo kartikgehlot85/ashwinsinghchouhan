@@ -1,0 +1,25 @@
+{
+  "overview": "Personal portfolio website for Ashwin Singh Chouhan, a pharmacologist and researcher. Features vibrant 3D-animated design with sections for Researches, Articles, Publications, Notes, About, and Contact. Includes a full admin panel for content management with file upload and external URL support.",
+  "features": [
+    "Animated 3D hero section with mouse-tracked parallax",
+    "Content sections: Researches, Articles, Publications, Notes",
+    "Admin login with secure password protection",
+    "Admin CRUD controls on every content card (edit/delete)",
+    "File-first upload flow with platform object storage",
+    "External URL linking option for journal links and Google Drive",
+    "3D hover cards with vibrant color gradients",
+    "Contact form submission",
+    "About page with author bio and credentials"
+  ],
+  "category": "portfolio",
+  "tags": [
+    "portfolio",
+    "research",
+    "pharmacology",
+    "admin",
+    "3d-design",
+    "file-upload",
+    "content-management"
+  ],
+  "last_updated": "2026-04-17T15:22:16.981Z"
+}

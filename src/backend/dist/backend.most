@@ -1,0 +1,68 @@
+// Version: 3.0.0
+type AdminState__837369086 =
+  {var adminToken : ?Text; var nextContactId : Nat; var nextItemId : Nat};
+type ContactId__479742040 = Nat;
+type ContactSubmission__93684224 =
+  {
+    email : Text;
+    id : ContactId__479742040;
+    message : Text;
+    name : Text;
+    subject : Text;
+    submittedAt : Timestamp__301639476
+  };
+type ContentItem__658366793 =
+  {
+    contentType : ContentType__790066569;
+    createdAt : Timestamp__301639476;
+    date : Text;
+    description : Text;
+    externalUrl : ?Text;
+    fileUrl : ?Text;
+    id : ItemId__833640393;
+    tags : [Text];
+    title : Text
+  };
+type ContentType__790066569 = Text;
+type ItemId__833640393 = Nat;
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type OldContentItem__780014940 =
+  {
+    contentType : Text;
+    createdAt : Timestamp__301639476;
+    date : Text;
+    description : Text;
+    fileUrl : ?Text;
+    id : ItemId__833640393;
+    tags : [Text];
+    title : Text
+  };
+type Timestamp__301639476 = Int;
+actor ({
+  in contacts : List__415060402<ContactSubmission__93684224>;
+  in items : List__415060402<OldContentItem__780014940>;
+  in state : AdminState__837369086
+}, {
+  stable contacts :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContactSubmission__93684224]];
+      var elementIndex : Nat__490723111
+    };
+  stable items :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContentItem__658366793]];
+      var elementIndex : Nat__490723111
+    };
+  stable state :
+    {var adminToken : ?Text; var nextContactId : Nat; var nextItemId : Nat}
+}) ;
