@@ -1,16 +1,24 @@
 import { Separator } from "@/components/ui/separator";
 import { Atom } from "lucide-react";
 import { FiLinkedin, FiMail } from "react-icons/fi";
-import { SiGooglescholar, SiResearchgate } from "react-icons/si";
+import { SiResearchgate, SiYoutube } from "react-icons/si";
 
 const SOCIAL_LINKS = [
-  { icon: FiLinkedin, label: "LinkedIn", href: "#" },
+  {
+    icon: FiLinkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ashwin-singh-chouhan-abba34161",
+  },
   { icon: SiResearchgate, label: "ResearchGate", href: "#" },
-  { icon: SiGooglescholar, label: "Google Scholar", href: "#" },
+  {
+    icon: SiYoutube,
+    label: "YouTube",
+    href: "https://www.youtube.com/@ashwinsinghchouhan5221",
+  },
   {
     icon: FiMail,
     label: "Email",
-    href: "mailto:ashwin.chouhan@pharmaresearch.ac.in",
+    href: "mailto:ashwinsingh26061992@gmail.com",
   },
 ];
 
@@ -52,9 +60,9 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Advancing the frontiers of pharmacological science through
-              rigorous research, innovative drug discovery, and evidence-based
-              scholarship.
+              Bridging traditional knowledge with modern science, fostering
+              innovation in natural product research, and inspiring the next
+              generation of pharmaceutical scientists.
             </p>
             <div className="flex items-center gap-3">
               {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (

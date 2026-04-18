@@ -5,9 +5,9 @@ import Common "types/common";
 import ContentApi "mixins/content-api";
 import ContactApi "mixins/contact-api";
 import AuthApi "mixins/auth-api";
-import Migration "migration";
 
-(with migration = Migration.run)
+
+
 actor {
   let state : Common.AdminState = {
     var adminToken = null;

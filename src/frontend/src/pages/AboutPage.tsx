@@ -1,13 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import {
-  Atom,
-  Award,
-  BookOpen,
-  FlaskConical,
-  GraduationCap,
-  Users,
-} from "lucide-react";
+import { Atom, GraduationCap } from "lucide-react";
 import { motion } from "motion/react";
 
 const SKILLS = [
@@ -52,13 +45,6 @@ const TIMELINE = [
   },
 ];
 
-const STATS = [
-  { icon: BookOpen, label: "Publications", value: "8+" },
-  { icon: FlaskConical, label: "Research Projects", value: "12+" },
-  { icon: Award, label: "Awards", value: "4" },
-  { icon: Users, label: "Collaborations", value: "15+" },
-];
-
 export function AboutPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -82,27 +68,6 @@ export function AboutPage() {
         </p>
       </motion.div>
 
-      {/* Stats */}
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        {STATS.map(({ icon: Icon, label, value }) => (
-          <div
-            key={label}
-            className="bg-card border border-border rounded-xl p-5 text-center hover:border-primary/40 transition-smooth"
-          >
-            <Icon className="w-6 h-6 text-primary mx-auto mb-2" />
-            <div className="font-display text-2xl font-black text-gradient">
-              {value}
-            </div>
-            <div className="text-xs text-muted-foreground mt-1">{label}</div>
-          </div>
-        ))}
-      </motion.div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
         {/* Bio */}
         <motion.div
@@ -117,24 +82,27 @@ export function AboutPage() {
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed text-sm">
             <p>
-              I am Ashwin Singh Chouhan, a pharmacologist and researcher with a
-              deep commitment to understanding the molecular basis of drug
-              action and developing novel therapeutic agents. My work bridges
-              the gap between computational chemistry and experimental
-              pharmacology.
+              Ashwin Singh Chouhan is a distinguished Indian academic and
+              pharmacology researcher, currently serving as an Assistant
+              Professor in the Department of Pharmacy at Jai Narain Vyas
+              University (JNVU), Jodhpur, Rajasthan. With a PhD in Pharmacology
+              from B. N. University, Udaipur, his scholarly journey has been
+              defined by a deep commitment to advancing pharmacological science
+              through rigorous research, innovative drug discovery, and the
+              exploration of medicinal plants.
             </p>
             <p>
-              My research focuses on neuroprotection, antimicrobial drug
-              discovery, and the pharmacological validation of natural products.
-              I employ a multidisciplinary approach—integrating in silico tools,
-              synthetic chemistry, and biological evaluation to accelerate the
-              drug discovery pipeline.
+              Specializing in pharmacology, phytochemistry, and
+              neuropharmacological evaluation of natural products, Dr. Chouhan
+              has authored over 75 impactful research and review articles in
+              leading international journals, contributing significantly to the
+              global scientific community.
             </p>
             <p>
-              Beyond research, I am passionate about science communication and
-              education. Through my articles and notes, I strive to make complex
-              pharmacological concepts accessible to students and early-career
-              researchers.
+              Beyond teaching and mentoring pharmacy students, he is dedicated
+              to bridging traditional knowledge with modern science, fostering
+              innovation in natural product research, and inspiring the next
+              generation of pharmaceutical scientists.
             </p>
           </div>
         </motion.div>

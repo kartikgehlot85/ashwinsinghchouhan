@@ -21,8 +21,8 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     label: "Email",
-    value: "ashwin.chouhan@pharmaresearch.ac.in",
-    href: "mailto:ashwin.chouhan@pharmaresearch.ac.in",
+    value: "ashwinsingh26061992@gmail.com",
+    href: "mailto:ashwinsingh26061992@gmail.com",
   },
   { icon: MapPin, label: "Location", value: "India", href: null },
   {

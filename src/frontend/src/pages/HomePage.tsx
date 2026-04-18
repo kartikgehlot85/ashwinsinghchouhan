@@ -10,7 +10,6 @@ import {
   Dna,
   FileText,
   FlaskConical,
-  StickyNote,
 } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useCallback } from "react";
@@ -46,7 +45,7 @@ const SECTION_LINKS = [
     icon: Beaker,
     label: "Researches",
     href: "/researches",
-    count: "3+",
+    count: "9+",
     color:
       "from-primary/20 to-primary/5 border-primary/30 hover:border-primary/60",
   },
@@ -54,7 +53,7 @@ const SECTION_LINKS = [
     icon: BookOpen,
     label: "Articles",
     href: "/articles",
-    count: "3+",
+    count: "60+",
     color:
       "from-secondary/20 to-secondary/5 border-secondary/30 hover:border-secondary/60",
   },
@@ -62,16 +61,8 @@ const SECTION_LINKS = [
     icon: FileText,
     label: "Publications",
     href: "/publications",
-    count: "3+",
+    count: "9+",
     color: "from-accent/20 to-accent/5 border-accent/30 hover:border-accent/60",
-  },
-  {
-    icon: StickyNote,
-    label: "Notes",
-    href: "/notes",
-    count: "3+",
-    color:
-      "from-chart-4/20 to-chart-4/5 border-chart-4/30 hover:border-chart-4/60",
   },
 ];
 
@@ -496,7 +487,7 @@ export function HomePage() {
               peer-reviewed publications, and academic notes.
             </p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {SECTION_LINKS.map(
               ({ icon: Icon, label, href, count, color }, i) => (
                 <motion.div

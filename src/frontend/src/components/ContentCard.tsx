@@ -16,7 +16,6 @@ import {
   ExternalLink,
   FileDown,
   Pencil,
-  Tag,
   Trash2,
 } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
@@ -190,26 +189,6 @@ export function ContentCard({
             <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
               {item.description}
             </p>
-
-            {/* Tags */}
-            {item.tags.length > 0 && (
-              <div className="flex flex-wrap gap-1.5 mt-1">
-                {item.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center gap-1 text-xs text-muted-foreground bg-muted/60 border border-border rounded-md px-2 py-0.5"
-                  >
-                    <Tag className="w-2.5 h-2.5" />
-                    {tag}
-                  </span>
-                ))}
-                {item.tags.length > 3 && (
-                  <span className="text-xs text-muted-foreground bg-muted/60 border border-border rounded-md px-2 py-0.5">
-                    +{item.tags.length - 3}
-                  </span>
-                )}
-              </div>
-            )}
 
             {/* Footer */}
             <div className="flex items-center justify-between mt-1 pt-3 border-t border-border/50">
