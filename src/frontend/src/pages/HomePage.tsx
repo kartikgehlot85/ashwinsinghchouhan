@@ -61,7 +61,7 @@ const SECTION_LINKS = [
     icon: FileText,
     label: "Publications",
     href: "/publications",
-    count: "9+",
+    count: "4",
     color: "from-accent/20 to-accent/5 border-accent/30 hover:border-accent/60",
   },
 ];

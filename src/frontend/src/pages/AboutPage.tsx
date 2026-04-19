@@ -82,27 +82,38 @@ export function AboutPage() {
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed text-sm">
             <p>
-              Ashwin Singh Chouhan is a distinguished Indian academic and
-              pharmacology researcher, currently serving as an Assistant
-              Professor in the Department of Pharmacy at Jai Narain Vyas
-              University (JNVU), Jodhpur, Rajasthan. With a PhD in Pharmacology
-              from B. N. University, Udaipur, his scholarly journey has been
-              defined by a deep commitment to advancing pharmacological science
-              through rigorous research, innovative drug discovery, and the
-              exploration of medicinal plants.
+              Dr. Ashwin Singh Chouhan is an accomplished academician and
+              researcher in the field of pharmaceutical sciences, currently
+              serving as an Assistant Professor in the Department of Pharmacy at
+              Jai Narain Vyas University (JNVU), Jodhpur, Rajasthan, India. He
+              is also complete his Ph.D. in Pharmacology from B. N. University,
+              Udaipur, with a strong research focus on neuropharmacology and
+              bio-guided fractionation of medicinal plants.
             </p>
             <p>
-              Specializing in pharmacology, phytochemistry, and
-              neuropharmacological evaluation of natural products, Dr. Chouhan
-              has authored over 75 impactful research and review articles in
-              leading international journals, contributing significantly to the
-              global scientific community.
+              With a robust academic and research background, Dr. Chouhan has
+              authored over 75 national and international research and review
+              articles, contributing significantly to the fields of
+              phytochemistry, ethnopharmacology, and CNS-related pharmacological
+              studies. His research work primarily explores the therapeutic
+              potential of plant-based compounds, particularly within the
+              Cucurbitaceae family, emphasizing their neuroprotective,
+              anticonvulsant, and anxiolytic activities.
             </p>
             <p>
-              Beyond teaching and mentoring pharmacy students, he is dedicated
-              to bridging traditional knowledge with modern science, fostering
-              innovation in natural product research, and inspiring the next
-              generation of pharmaceutical scientists.
+              Dr. Chouhan has extensive experience in advanced chromatographic
+              techniques, including HPLC, TLC, column chromatography, and
+              liquid-liquid extraction, alongside in vivo behavioral models such
+              as elevated zero maze, actophotometer, and PTZ-induced seizure
+              models. His interdisciplinary approach bridges traditional
+              medicinal knowledge with modern pharmacological evaluation.
+            </p>
+            <p>
+              Recognized for his academic excellence, he received the Best
+              Research Paper Award at the ICTASEMP Conference in 2021. He is
+              actively engaged in mentoring students, reviewing scientific
+              manuscripts, and contributing to high-impact journals, reflecting
+              his commitment to advancing pharmaceutical research and education.
             </p>
           </div>
         </motion.div>
