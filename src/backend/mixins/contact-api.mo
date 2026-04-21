@@ -23,4 +23,12 @@ mixin (
     };
     #ok(ContactLib.getContacts(contacts));
   };
+
+  public func deleteContact(token : AuthTypes.Token, contactId : Common.ContactId) : async Common.Result<(), Text> {
+    if (not AuthLib.verifyToken(state.adminToken, token)) {
+      return #err("Unauthorized");
+    };
+    let found = ContactLib.deleteContact(contacts, contactId);
+    if (found) { #ok(()) } else { #err("Contact not found") };
+  };
 };

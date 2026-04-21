@@ -11,20 +11,30 @@ type UpdateItemRequest =
  };
 type Token = text;
 type Timestamp = int;
-type Result_3 = 
+type TimelineEntry = 
+ record {
+   description: text;
+   year: text;
+ };
+type Result_4 = 
  variant {
    err: text;
    ok: ContentItem;
  };
-type Result_2 = 
+type Result_3 = 
  variant {
    err: text;
    ok: vec ContactSubmission;
  };
-type Result_1 = 
+type Result_2 = 
  variant {
    err: text;
    ok: ContactSubmission;
+ };
+type Result_1 = 
+ variant {
+   err: text;
+   ok;
  };
 type Result = 
  variant {
@@ -77,14 +87,22 @@ type AddItemRequest =
    tags: vec text;
    title: text;
  };
+type AboutData = 
+ record {
+   bio: text;
+   timeline: vec TimelineEntry;
+ };
 service : {
-  addItem: (token: Token, req: AddItemRequest) -> (Result_3);
+  addItem: (token: Token, req: AddItemRequest) -> (Result_4);
   adminLogin: (password: text) -> (LoginResult);
+  deleteContact: (token: Token, contactId: ContactId) -> (Result_1);
   deleteItem: (token: Token, id: ItemId) -> (Result);
-  getContacts: (token: Token) -> (Result_2);
+  getAbout: () -> (AboutData) query;
+  getContacts: (token: Token) -> (Result_3);
   getItem: (id: ItemId) -> (opt ContentItem) query;
   getItemsByType: (contentType: ContentType) -> (vec ContentItem) query;
-  submitContact: (req: ContactRequest) -> (Result_1);
+  submitContact: (req: ContactRequest) -> (Result_2);
+  updateAbout: (token: Token, data: AboutData) -> (Result_1);
   updateItem: (token: Token, req: UpdateItemRequest) -> (Result);
   verifyToken: (token: Token) -> (bool) query;
 }

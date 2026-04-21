@@ -38,10 +38,10 @@ const TIMELINE = [
     desc: "Specialized in pharmacodynamics, toxicology, and clinical pharmacology. Gold Medal recipient.",
   },
   {
-    year: "2016–2020",
+    year: "2011-2014",
     title: "B.Pharm",
     org: "College of Pharmacy",
-    desc: "Graduated with distinction. Active in research seminars and student scientific societies.",
+    desc: "Strong foundation in pharmaceutical sciences and early research exposure.",
   },
 ];
 

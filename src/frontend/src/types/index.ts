@@ -47,3 +47,13 @@ export interface AdminSession {
   token: string;
   expiresAt: number;
 }
+
+export interface TimelineEntry {
+  year: string;
+  description: string;
+}
+
+export interface AboutData {
+  bio: string;
+  timeline: TimelineEntry[];
+}

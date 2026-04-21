@@ -11,7 +11,7 @@ export type ContentType = string;
 export type Timestamp = bigint;
 export type Result_2 = {
     __kind__: "ok";
-    ok: Array<ContactSubmission>;
+    ok: ContactSubmission;
 } | {
     __kind__: "err";
     err: string;
@@ -44,9 +44,24 @@ export interface ContentItem {
     externalUrl?: string;
     fileUrl?: string;
 }
+export interface AboutData {
+    bio: string;
+    timeline: Array<TimelineEntry>;
+}
+export interface TimelineEntry {
+    year: string;
+    description: string;
+}
 export type Result_1 = {
     __kind__: "ok";
-    ok: ContactSubmission;
+    ok: null;
+} | {
+    __kind__: "err";
+    err: string;
+};
+export type Result_4 = {
+    __kind__: "ok";
+    ok: ContentItem;
 } | {
     __kind__: "err";
     err: string;
@@ -66,7 +81,7 @@ export type Result = {
 };
 export type Result_3 = {
     __kind__: "ok";
-    ok: ContentItem;
+    ok: Array<ContactSubmission>;
 } | {
     __kind__: "err";
     err: string;
@@ -92,13 +107,16 @@ export type LoginResult = {
 };
 export type ContactId = bigint;
 export interface backendInterface {
-    addItem(token: Token, req: AddItemRequest): Promise<Result_3>;
+    addItem(token: Token, req: AddItemRequest): Promise<Result_4>;
     adminLogin(password: string): Promise<LoginResult>;
+    deleteContact(token: Token, contactId: ContactId): Promise<Result_1>;
     deleteItem(token: Token, id: ItemId): Promise<Result>;
-    getContacts(token: Token): Promise<Result_2>;
+    getAbout(): Promise<AboutData>;
+    getContacts(token: Token): Promise<Result_3>;
     getItem(id: ItemId): Promise<ContentItem | null>;
     getItemsByType(contentType: ContentType): Promise<Array<ContentItem>>;
-    submitContact(req: ContactRequest): Promise<Result_1>;
+    submitContact(req: ContactRequest): Promise<Result_2>;
+    updateAbout(token: Token, data: AboutData): Promise<Result_1>;
     updateItem(token: Token, req: UpdateItemRequest): Promise<Result>;
     verifyToken(token: Token): Promise<boolean>;
 }

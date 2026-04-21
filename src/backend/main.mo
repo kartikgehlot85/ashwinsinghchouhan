@@ -5,6 +5,7 @@ import Common "types/common";
 import ContentApi "mixins/content-api";
 import ContactApi "mixins/contact-api";
 import AuthApi "mixins/auth-api";
+import AboutApi "mixins/about-api";
 
 
 
@@ -18,7 +19,11 @@ actor {
   let items = List.empty<ContentTypes.ContentItem>();
   let contacts = List.empty<ContactTypes.ContactSubmission>();
 
+  let aboutBio : { var val : Text } = { var val = "" };
+  let aboutTimeline : { var val : [ContentTypes.TimelineEntry] } = { var val = [] };
+
   include AuthApi(state);
   include ContentApi(items, state);
   include ContactApi(contacts, state);
+  include AboutApi(aboutBio, aboutTimeline, state);
 };

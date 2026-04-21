@@ -3,6 +3,16 @@ import Common "common";
 module {
   public type ContentType = Text; // "research" | "article" | "publication" | "note"
 
+  public type TimelineEntry = {
+    year : Text;
+    description : Text;
+  };
+
+  public type AboutData = {
+    bio : Text;
+    timeline : [TimelineEntry];
+  };
+
   public type ContentItem = {
     id : Common.ItemId;
     contentType : ContentType;

@@ -32,10 +32,19 @@ export const ContentItem = IDL.Record({
   'externalUrl' : IDL.Opt(IDL.Text),
   'fileUrl' : IDL.Opt(IDL.Text),
 });
-export const Result_3 = IDL.Variant({ 'ok' : ContentItem, 'err' : IDL.Text });
+export const Result_4 = IDL.Variant({ 'ok' : ContentItem, 'err' : IDL.Text });
 export const LoginResult = IDL.Variant({ 'ok' : Token, 'err' : IDL.Text });
-export const Result = IDL.Variant({ 'ok' : IDL.Bool, 'err' : IDL.Text });
 export const ContactId = IDL.Nat;
+export const Result_1 = IDL.Variant({ 'ok' : IDL.Null, 'err' : IDL.Text });
+export const Result = IDL.Variant({ 'ok' : IDL.Bool, 'err' : IDL.Text });
+export const TimelineEntry = IDL.Record({
+  'year' : IDL.Text,
+  'description' : IDL.Text,
+});
+export const AboutData = IDL.Record({
+  'bio' : IDL.Text,
+  'timeline' : IDL.Vec(TimelineEntry),
+});
 export const ContactSubmission = IDL.Record({
   'id' : ContactId,
   'subject' : IDL.Text,
@@ -44,7 +53,7 @@ export const ContactSubmission = IDL.Record({
   'email' : IDL.Text,
   'message' : IDL.Text,
 });
-export const Result_2 = IDL.Variant({
+export const Result_3 = IDL.Variant({
   'ok' : IDL.Vec(ContactSubmission),
   'err' : IDL.Text,
 });
@@ -54,7 +63,7 @@ export const ContactRequest = IDL.Record({
   'email' : IDL.Text,
   'message' : IDL.Text,
 });
-export const Result_1 = IDL.Variant({
+export const Result_2 = IDL.Variant({
   'ok' : ContactSubmission,
   'err' : IDL.Text,
 });
@@ -70,13 +79,16 @@ export const UpdateItemRequest = IDL.Record({
 });
 
 export const idlService = IDL.Service({
-  'addItem' : IDL.Func([Token, AddItemRequest], [Result_3], []),
+  'addItem' : IDL.Func([Token, AddItemRequest], [Result_4], []),
   'adminLogin' : IDL.Func([IDL.Text], [LoginResult], []),
+  'deleteContact' : IDL.Func([Token, ContactId], [Result_1], []),
   'deleteItem' : IDL.Func([Token, ItemId], [Result], []),
-  'getContacts' : IDL.Func([Token], [Result_2], []),
+  'getAbout' : IDL.Func([], [AboutData], ['query']),
+  'getContacts' : IDL.Func([Token], [Result_3], []),
   'getItem' : IDL.Func([ItemId], [IDL.Opt(ContentItem)], ['query']),
   'getItemsByType' : IDL.Func([ContentType], [IDL.Vec(ContentItem)], ['query']),
-  'submitContact' : IDL.Func([ContactRequest], [Result_1], []),
+  'submitContact' : IDL.Func([ContactRequest], [Result_2], []),
+  'updateAbout' : IDL.Func([Token, AboutData], [Result_1], []),
   'updateItem' : IDL.Func([Token, UpdateItemRequest], [Result], []),
   'verifyToken' : IDL.Func([Token], [IDL.Bool], ['query']),
 });
@@ -108,10 +120,19 @@ export const idlFactory = ({ IDL }) => {
     'externalUrl' : IDL.Opt(IDL.Text),
     'fileUrl' : IDL.Opt(IDL.Text),
   });
-  const Result_3 = IDL.Variant({ 'ok' : ContentItem, 'err' : IDL.Text });
+  const Result_4 = IDL.Variant({ 'ok' : ContentItem, 'err' : IDL.Text });
   const LoginResult = IDL.Variant({ 'ok' : Token, 'err' : IDL.Text });
-  const Result = IDL.Variant({ 'ok' : IDL.Bool, 'err' : IDL.Text });
   const ContactId = IDL.Nat;
+  const Result_1 = IDL.Variant({ 'ok' : IDL.Null, 'err' : IDL.Text });
+  const Result = IDL.Variant({ 'ok' : IDL.Bool, 'err' : IDL.Text });
+  const TimelineEntry = IDL.Record({
+    'year' : IDL.Text,
+    'description' : IDL.Text,
+  });
+  const AboutData = IDL.Record({
+    'bio' : IDL.Text,
+    'timeline' : IDL.Vec(TimelineEntry),
+  });
   const ContactSubmission = IDL.Record({
     'id' : ContactId,
     'subject' : IDL.Text,
@@ -120,7 +141,7 @@ export const idlFactory = ({ IDL }) => {
     'email' : IDL.Text,
     'message' : IDL.Text,
   });
-  const Result_2 = IDL.Variant({
+  const Result_3 = IDL.Variant({
     'ok' : IDL.Vec(ContactSubmission),
     'err' : IDL.Text,
   });
@@ -130,7 +151,7 @@ export const idlFactory = ({ IDL }) => {
     'email' : IDL.Text,
     'message' : IDL.Text,
   });
-  const Result_1 = IDL.Variant({ 'ok' : ContactSubmission, 'err' : IDL.Text });
+  const Result_2 = IDL.Variant({ 'ok' : ContactSubmission, 'err' : IDL.Text });
   const UpdateItemRequest = IDL.Record({
     'id' : ItemId,
     'title' : IDL.Text,
@@ -143,17 +164,20 @@ export const idlFactory = ({ IDL }) => {
   });
   
   return IDL.Service({
-    'addItem' : IDL.Func([Token, AddItemRequest], [Result_3], []),
+    'addItem' : IDL.Func([Token, AddItemRequest], [Result_4], []),
     'adminLogin' : IDL.Func([IDL.Text], [LoginResult], []),
+    'deleteContact' : IDL.Func([Token, ContactId], [Result_1], []),
     'deleteItem' : IDL.Func([Token, ItemId], [Result], []),
-    'getContacts' : IDL.Func([Token], [Result_2], []),
+    'getAbout' : IDL.Func([], [AboutData], ['query']),
+    'getContacts' : IDL.Func([Token], [Result_3], []),
     'getItem' : IDL.Func([ItemId], [IDL.Opt(ContentItem)], ['query']),
     'getItemsByType' : IDL.Func(
         [ContentType],
         [IDL.Vec(ContentItem)],
         ['query'],
       ),
-    'submitContact' : IDL.Func([ContactRequest], [Result_1], []),
+    'submitContact' : IDL.Func([ContactRequest], [Result_2], []),
+    'updateAbout' : IDL.Func([Token, AboutData], [Result_1], []),
     'updateItem' : IDL.Func([Token, UpdateItemRequest], [Result], []),
     'verifyToken' : IDL.Func([Token], [IDL.Bool], ['query']),
   });

@@ -25,8 +25,11 @@ type ContentType__790066569 = Text;
 type ItemId__833640393 = Nat;
 type Nat__490723111 = Nat__920180692;
 type Nat__920180692 = Nat;
+type TimelineEntry__73282298 = {description : Text; year : Text};
 type Timestamp__301639476 = Int;
 actor {
+  stable aboutBio : {var val : Text};
+  stable aboutTimeline : {var val : [TimelineEntry__73282298]};
   stable contacts :
     {
       var blockIndex : Nat__490723111;

@@ -26,4 +26,15 @@ module {
   ) : [Types.ContactSubmission] {
     contacts.toArray();
   };
+
+  public func deleteContact(
+    contacts : List.List<Types.ContactSubmission>,
+    contactId : Common.ContactId,
+  ) : Bool {
+    let sizeBefore = contacts.size();
+    let filtered = contacts.filter(func(c) { c.id != contactId });
+    contacts.clear();
+    contacts.append(filtered);
+    contacts.size() < sizeBefore;
+  };
 };

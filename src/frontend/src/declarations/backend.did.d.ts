@@ -10,6 +10,7 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
+export interface AboutData { 'bio' : string, 'timeline' : Array<TimelineEntry> }
 export interface AddItemRequest {
   'title' : string,
   'contentType' : ContentType,
@@ -51,12 +52,15 @@ export type LoginResult = { 'ok' : Token } |
   { 'err' : string };
 export type Result = { 'ok' : boolean } |
   { 'err' : string };
-export type Result_1 = { 'ok' : ContactSubmission } |
+export type Result_1 = { 'ok' : null } |
   { 'err' : string };
-export type Result_2 = { 'ok' : Array<ContactSubmission> } |
+export type Result_2 = { 'ok' : ContactSubmission } |
   { 'err' : string };
-export type Result_3 = { 'ok' : ContentItem } |
+export type Result_3 = { 'ok' : Array<ContactSubmission> } |
   { 'err' : string };
+export type Result_4 = { 'ok' : ContentItem } |
+  { 'err' : string };
+export interface TimelineEntry { 'year' : string, 'description' : string }
 export type Timestamp = bigint;
 export type Token = string;
 export interface UpdateItemRequest {
@@ -70,13 +74,16 @@ export interface UpdateItemRequest {
   'fileUrl' : [] | [string],
 }
 export interface _SERVICE {
-  'addItem' : ActorMethod<[Token, AddItemRequest], Result_3>,
+  'addItem' : ActorMethod<[Token, AddItemRequest], Result_4>,
   'adminLogin' : ActorMethod<[string], LoginResult>,
+  'deleteContact' : ActorMethod<[Token, ContactId], Result_1>,
   'deleteItem' : ActorMethod<[Token, ItemId], Result>,
-  'getContacts' : ActorMethod<[Token], Result_2>,
+  'getAbout' : ActorMethod<[], AboutData>,
+  'getContacts' : ActorMethod<[Token], Result_3>,
   'getItem' : ActorMethod<[ItemId], [] | [ContentItem]>,
   'getItemsByType' : ActorMethod<[ContentType], Array<ContentItem>>,
-  'submitContact' : ActorMethod<[ContactRequest], Result_1>,
+  'submitContact' : ActorMethod<[ContactRequest], Result_2>,
+  'updateAbout' : ActorMethod<[Token, AboutData], Result_1>,
   'updateItem' : ActorMethod<[Token, UpdateItemRequest], Result>,
   'verifyToken' : ActorMethod<[Token], boolean>,
 }
