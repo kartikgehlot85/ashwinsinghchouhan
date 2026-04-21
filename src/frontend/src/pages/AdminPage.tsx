@@ -698,9 +698,15 @@ function ContactsTab({ token }: { token: string }) {
 
 function AdminContent() {
   const { logout, token } = useAdmin();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<AdminTab>("research");
   const { data: contacts = [] } = useContacts(token ?? "");
   const contactCount = contacts.length;
+
+  const handleLogout = () => {
+    logout();
+    void navigate({ to: "/" });
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -725,7 +731,7 @@ function AdminContent() {
         </div>
         <Button
           variant="ghost"
-          onClick={logout}
+          onClick={handleLogout}
           className="text-muted-foreground hover:text-foreground text-sm"
           data-ocid="admin_page.logout_button"
         >
